@@ -1,5 +1,7 @@
 <template>
-  <router-view></router-view>
+  <div>
+    idnex
+  </div>
 </template>
 
 <script>

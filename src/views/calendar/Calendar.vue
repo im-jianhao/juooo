@@ -1,5 +1,7 @@
 <template>
-  <router-view></router-view>
+  <div>
+    calendar
+  </div>
 </template>
 
 <script>
