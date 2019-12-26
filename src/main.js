@@ -8,6 +8,7 @@ import axios from "axios";
 Vue.prototype.$axios = axios;
 
 import "assets/reset.css";
+import "assets/vantReset.styl";
 
 Vue.config.productionTip = false;
 

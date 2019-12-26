@@ -12,6 +12,10 @@ import Calendar from "views/calendar/Calendar";
 
 import ShowsLibrary from "views/show/ShowsLibrary";
 
+import Ticket from "views/ticket/Ticket";
+
+import Venue from "views/venue/Venue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -48,6 +52,17 @@ const routes = [
     path: "/show/showsLibrary",
     name: "show",
     component: ShowsLibrary
+  },
+  {
+    path: "/ticket/:id",
+    name: "ticket",
+    props: true,
+    component: Ticket
+  },
+  {
+    path: "/venue/venueAddress",
+    name: "venueAddress",
+    component: Venue
   }
 ];
 

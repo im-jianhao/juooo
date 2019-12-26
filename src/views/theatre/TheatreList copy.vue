@@ -16,7 +16,7 @@
                   v-for="theatre in theatreList"
                   :key="theatre.id"
                 >
-                  <div class="theater-info-shows"  v-if="theatre.showList.length">
+                  <div class="theater-info-shows">
                     <div class="theater-info">
                       <a
                         :href="theatre.theatre_url"
@@ -44,15 +44,10 @@
                         <div
                           class="swiper-container swiper-container-horizontal"
                         >
-                          <van-swipe
-                            :loop="false"
-                            :width="114"
-                            class="swiper-wrapper"
-                            :show-indicators="false"
-                          >
-                            <van-swipe-item
+                          <div class="swiper-wrapper">
+                            <div
                               class="swiper-slide"
-                              v-for="showItem in theatre.showList.slice(0,8)"
+                              v-for="showItem in theatre.showList"
                               :key="showItem.id"
                             >
                               <div class="theater-show-date">
@@ -68,21 +63,8 @@
                                   class="show-pic"
                                 />
                               </a>
-                            </van-swipe-item>
-
-                            <van-swipe-item class="swiper-slide" v-if="theatre.showList.length > 8">
-                              <div class="theater-show-date">
-                                <p class="show-date"></p>
-                                <span class="dot"></span>
-                              </div>
-                              <a
-                                :href="theatre.show_list_url"
-                                class="theater-show-pic"
-                              >
-                                <p class="theater-check-more">查看更多&gt;</p>
-                              </a>
-                            </van-swipe-item>
-                          </van-swipe>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -98,11 +80,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-import { Swipe, SwipeItem } from "vant";
-
-Vue.use(Swipe).use(SwipeItem);
-
 import BScroll from "better-scroll";
 
 export default {
@@ -125,6 +102,9 @@ export default {
     await this.$nextTick();
 
     let bScroll = new BScroll(".wrapper", {});
+    new BScroll(".swiper-container", {
+      scrollX: true
+    });
   }
 };
 </script>
@@ -220,8 +200,8 @@ export default {
   // height: 100%;
   // z-index: 1;
   // transition-property: transform;
-  // width max-content
-  // display: flex;
+  width max-content
+  display: flex;
 .swiper-slide
   flex-shrink: 0;
   width: 1.14rem;
@@ -258,13 +238,8 @@ export default {
     overflow: hidden;
     .show-pic
       width: 1.07rem;
-    .theater-check-more
-      width: 1.07rem;
-      height: 100%;
-      text-align: center;
-      background-color: #f5f5f5;
-      color: #666666;
-      font-size: .14rem;
+
+
 
 
 
